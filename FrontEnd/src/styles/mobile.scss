@@ -1,0 +1,381 @@
+.navbar__menu-btn,
+.navbar__mobile-search-btn {
+  display: none;
+}
+
+@include respond-to(sm) {
+  //Announcement Bar
+  .announcement-bar {
+    padding: 10px 34px 10px 12px;
+    font-size: 11px;
+    line-height: 1.4;
+
+    &__close {
+      right: 13px;
+      font-size: 16px;
+    }
+  }
+
+  //Navbar
+  .navbar {
+    padding: 14px 16px;
+    position: relative;
+
+    &__logo {
+      font-size: $font-size-2xl;
+      position: relative;
+      right: 50px;
+    }
+
+    &__links {
+      display: none;
+    }
+
+    &__search {
+      display: none;
+    }
+
+    &__actions {
+      gap: $space-12;
+    }
+
+    &__menu-btn {
+      display: flex;
+      background: none;
+      border: none;
+      padding: 0;
+      color: $color-black;
+      align-items: center;
+      margin-right: $space-sm;
+    }
+
+    &__mobile-search-btn {
+      display: flex;
+    }
+
+    &__mobile-panel {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: $color-white;
+      border-bottom: 1px solid $color-border-light;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      padding: $md 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: $md;
+      z-index: 99;
+    }
+
+    &__mobile-link {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-medium;
+      color: $color-black;
+      padding: 4px 0;
+    }
+
+    &__mobile-search {
+      display: flex;
+      align-items: center;
+      background: $color-bg-subtle;
+      border-radius: $radius-full;
+      padding: 10px $md;
+      gap: $space-sm;
+
+      input {
+        border: none;
+        background: transparent;
+        outline: none;
+        font-size: $font-size-base;
+        width: 100%;
+        font-family: inherit;
+      }
+    }
+  }
+
+  //Hero
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 24px 16px 0;
+    min-height: auto;
+
+    &__star {
+      &--top {
+        top: 510px;
+        right: 35px;
+        width: 70px;
+        height: 70px;
+      }
+
+      &--bottom {
+        top: 610px;
+        left: 47px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &__content {
+      max-width: none;
+      padding-bottom: 28px;
+    }
+
+    &__title {
+      font-size: 34px;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    &__description {
+      font-size: $font-size-base;
+      min-width: 0;
+      margin-bottom: $lg;
+      br {
+        display: none;
+      }
+    }
+
+    &__stats {
+      flex-wrap: wrap;
+      margin-top: 24px;
+      row-gap: 36px;
+      text-align: center;
+      justify-content: center;
+    }
+
+    &__stat-item {
+      flex: 0 0 47%;
+
+      &:nth-child(3) {
+        flex: 0 0 100%;
+        justify-content: center;
+        text-align: center;
+
+        .hero__stat-divider {
+          display: none;
+        }
+      }
+    }
+
+    &__stat-value {
+      font-size: 26px;
+    }
+
+    &__image-wrap {
+      width: calc(100% + 32px);
+      height: 530px;
+      margin: 0 -16px;
+      border-radius: 0;
+
+      img {
+        height: 100%;
+        transform: none;
+      }
+    }
+  }
+
+  //Brand Logo Bar
+  .brand-bar {
+    padding: 24px 16px;
+
+    &__track {
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      animation: none;
+      transform: none !important;
+    }
+
+    &__item {
+      padding: 6px 16px;
+      border-right: none;
+
+      // only show the first set of logos on mobile.
+      &:nth-child(n + 6) {
+        display: none;
+      }
+
+      svg,
+      img {
+        height: 18px;
+        width: auto;
+      }
+    }
+  }
+
+  //Section heading 
+  .section-heading {
+    font-size: 26px;
+    margin-bottom: 24px;
+  }
+
+  .homepage-section,
+  .homepage-section--new-arrivals,
+  .homepage-section--top-selling {
+    padding: 40px 16px;
+  }
+
+  //Product Grid
+  .product-grid {
+    &__items {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: $md;
+      margin: 0 -16px 24px;
+      padding: 0 16px 6px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__view-all-link {
+      display: block;
+      width: 100%;
+      padding: 14px;
+    }
+  }
+
+  .product-card {
+    flex: 0 0 75%;
+    scroll-snap-align: start;
+
+    &__name {
+      font-size: $font-size-md;
+    }
+
+    &__price {
+      font-size: $font-size-xl;
+    }
+  }
+
+  //Dress Style Grid
+  .dress-style {
+    padding: 0 16px;
+    margin: 40px 0;
+
+    &__inner {
+      padding: 28px 16px;
+      border-radius: $radius-lg;
+    }
+
+    &__title {
+      font-size: 26px;
+      margin-bottom: 24px;
+    }
+
+    &__row {
+      &--1-2,
+      &--2-1 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &__item {
+      height: 220px;
+      padding: $md 16px;
+    }
+
+    &__label {
+      font-size: $font-size-2xl;
+      margin-left: 0;
+    }
+  }
+
+  //Customer Reviews Slider
+  .reviews-slider {
+    padding: 40px 16px;
+
+    &__title {
+      font-size: 26px;
+      max-width: 220px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: $md;
+    }
+  }
+
+  //Newsletter
+  .newsletter {
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0 16px 40px;
+    padding: 32px 20px;
+    top: 0;
+    border-radius: $radius-lg;
+    gap: $lg;
+
+    &__title {
+      font-size: 24px;
+      max-width: none;
+    }
+
+    &__form {
+      min-width: 0;
+      width: 100%;
+    }
+  }
+
+  //Footer
+  .footer {
+    margin-top: 0;
+    padding: 40px 16px 20px;
+
+    &__top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px $md;
+      margin-bottom: 32px;
+    }
+
+    &__brand {
+      grid-column: 1 / -1;
+      flex: none;
+      margin-right: 0;
+    }
+
+    &__section-title {
+      font-size: $font-size-sm;
+      margin-bottom: $md;
+    }
+
+    &__links {
+      gap: 12px;
+    }
+
+    &__bottom {
+      flex-direction: column;
+      gap: $md;
+      text-align: center;
+      padding-top: $md;
+    }
+
+    &__payments {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  //Auth Page / Modal
+  .auth-page {
+    padding: 32px $md;
+  }
+
+  .auth-modal {
+    width: 92vw;
+    padding: 28px 20px 22px;
+
+    &__name-row {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+}

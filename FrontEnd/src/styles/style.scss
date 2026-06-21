@@ -1,52 +1,78 @@
-@import './variable.scss';
-@import './mixin.scss';
+@import "./variable.scss";
+@import "./mixin.scss";
 
-//global class  ======================
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
+//Utility Classes
+.text-center {
+  text-align: center;
+}
+.text-muted {
+  color: $color-text-muted;
+}
+.text-black {
+  color: $color-black;
 }
 
-.cyan-text {
-  color:  #1696A6;
+.mt-xs {
+  margin-top: $space-xs;
+}
+.mt-sm {
+  margin-top: $space-sm;
+}
+.mt-md {
+  margin-top: $space-md;
+}
+.mt-lg {
+  margin-top: $space-lg;
+}
+.mt-xl {
+  margin-top: $space-xl;
+}
+.mt-2xl {
+  margin-top: $space-2xl;
 }
 
+.mb-xs {
+  margin-bottom: $space-xs;
+}
+.mb-sm {
+  margin-bottom: $space-sm;
+}
+.mb-md {
+  margin-bottom: $space-md;
+}
+.mb-lg {
+  margin-bottom: $space-lg;
+}
+.mb-xl {
+  margin-bottom: $space-xl;
+}
+.mb-2xl {
+  margin-bottom: $space-2xl;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: $color-border-light;
+}
+
+//Container
 .container {
-  max-width: 100%;
-  padding: unset;
-}
-
-.m_h {
-  min-height: 100vh;
-}
-
-.layout {
-  height: fit-content;
-  background: transparent;
-  max-width: 1440px;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
+  padding: 0 40px;
 }
 
-.cap {
-  text-transform: capitalize;
+// Visually Hidden (accessibility)
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
-
-.underline {
-  text-decoration: underline;
-}
-
-sub,
-sup {
-  font-size: 75% ;
-  top: -0.5em;
-}
-
-.disable {
-  opacity: 0.5;
-}
-
-
-.text-danger {
-  margin-top: 0.5rem;
-}
-

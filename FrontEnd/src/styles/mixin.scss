@@ -1,0 +1,98 @@
+@import "./variable.scss";
+
+//Flex Utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+//Truncate
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//Responsive
+@mixin respond-to($bp) {
+  @if $bp == sm {
+    @media (max-width: #{$bp-sm}) {
+      @content;
+    }
+  } @else if $bp == md {
+    @media (max-width: #{$bp-md}) {
+      @content;
+    }
+  } @else if $bp == lg {
+    @media (max-width: #{$bp-lg}) {
+      @content;
+    }
+  } @else if $bp == xl {
+    @media (max-width: #{$bp-xl}) {
+      @content;
+    }
+  }
+}
+
+//Section Layout
+@mixin section-padding {
+  padding: $space-3xl 70px;
+}
+
+@mixin section-heading {
+  font-size: $font-size-h2;
+  font-weight: $font-weight-black;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  color: $color-black;
+  margin: 0 0 $space-xl;
+}
+
+//Card Base 
+@mixin card-base {
+  border-radius: $radius-lg;
+  overflow: hidden;
+  background: $color-white;
+  border: 1px solid $color-border-light;
+}
+
+//Button Reset
+@mixin button-reset {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+//Input Base
+@mixin input-base {
+  width: 100%;
+  padding: 12px $md;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  font-size: $font-size-base;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+
+  &:focus {
+    border-color: $color-black;
+  }
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+}
