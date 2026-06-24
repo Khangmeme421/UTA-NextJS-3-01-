@@ -4,7 +4,7 @@ import styles from './layout.module.scss';
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className={styles.mainLayout}>
-      <header className={styles.header}>
+      {/* <header className={styles.header}>
         <nav className={styles.nav}>
           <ul className={styles.navList}>
             <li>
@@ -41,7 +41,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             </li>
           </ul>
         </nav>
-      </header>
+      </header> */}
       <main className={styles.main}>{children}</main>
     </div>
   );

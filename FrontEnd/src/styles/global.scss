@@ -365,6 +365,29 @@ ul {
   }
 }
 
+//Product Pricing (detail page)
+.product-pricing {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &--detail {
+    margin-bottom: 16px;
+  }
+
+  &__price {
+    font-size: 24px;
+    font-weight: $font-weight-bold;
+    color: $color-black;
+  }
+
+  &__original-price {
+    font-size: 18px;
+    color: $color-text-light;
+    text-decoration: line-through;
+  }
+}
+
 //Product Grid
 .product-grid {
   &__items {
@@ -541,6 +564,19 @@ ul {
   border-radius: $radius-lg;
   padding: $lg;
   background: $color-white;
+
+  &__top {
+    @include flex-between;
+    align-items: flex-start;
+  }
+
+  &__menu-btn {
+    @include button-reset;
+    color: $color-text-muted;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+  }
 
   &__author-row {
     display: flex;

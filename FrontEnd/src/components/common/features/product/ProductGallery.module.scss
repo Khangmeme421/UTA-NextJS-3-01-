@@ -1,0 +1,81 @@
+.gallery {
+    display: flex;
+    gap: 16px;
+    margin-left: -122px;
+}
+
+.thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.thumbnail {
+    width: 152px;
+    height: 167px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.mainImageWrapper {
+    background: #f0f0f0;
+    border-radius: 12px;
+    width: 444px;
+    height: 530px;
+}
+
+.mainImage {
+    margin-left: 36px;
+    width: 86%;
+    height: 95%;
+    object-fit: cover;
+}
+
+@import "../../../../styles/mixin.scss";
+
+@include respond-to(sm) {
+    $mobile-thumb-width: 111px;
+    $mobile-thumb-height: 106px;
+
+    .gallery {
+        flex-direction: column;
+        margin-left: 0;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .mainImageWrapper {
+        order: -1;
+        width: 100%;
+        height: auto;
+        min-height: 320px;
+    }
+
+    .mainImage {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain;
+    }
+
+    .thumbnails {
+        flex-direction: row;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .thumbnail {
+        flex: 0 0 $mobile-thumb-width;
+        width: $mobile-thumb-width;
+        height: $mobile-thumb-height;
+        object-fit: cover;
+    }
+}

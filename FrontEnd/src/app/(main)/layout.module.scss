@@ -64,4 +64,13 @@
   margin: 0 auto;
   padding: 2rem;
   width: 100%;
-} 
+}
+
+@import "../../styles/mixin.scss";
+
+@include respond-to(sm) {
+  .main {
+    max-width: none;
+    padding: 16px;
+  }
+}
