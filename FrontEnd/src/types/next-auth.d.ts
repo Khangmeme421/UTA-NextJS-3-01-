@@ -1,6 +1,6 @@
-import NextAuth, { DefaultSession } from 'next-auth';
+import NextAuth, { DefaultSession } from "next-auth";
 
-declare module 'next-auth' {
+declare module "next-auth" {
   /**
    * Returned by `useSession`, `getSession` and received as a prop on the `SessionProvider` React Context
    */
@@ -9,13 +9,10 @@ declare module 'next-auth' {
       /** The user's postal address. */
       userId: string;
       access: string;
-    } & DefaultSession['user'];
+    } & DefaultSession["user"];
   }
-
-  interface User {
-    refresh: string;
-    access: string;
-    userId: string;
+  declare module "*.scss" {
+    const content: Record<string, string>;
+    export default content;
   }
 }
-
