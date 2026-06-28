@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import StarRating from "@/components/common/StarRating";
-import ProductPricing from "@/components/common/features/product/ProductPricing";
+import Badge from "@/components/common/Badge";
 import { ROUTES } from "@/constants";
 import type { Product } from "@/types/product.d";
 
@@ -21,11 +21,15 @@ export default function ProductCard({ product }: { product: Product }) {
       </div>
       <h3 className="product-card__name">{product.name}</h3>
       <StarRating value={product.rating} />
-      <ProductPricing
-        price={product.price}
-        originalPrice={product.originalPrice}
-        discount={product.discount}
-      />
+      <div className="product-card__pricing">
+        <span className="product-card__price">${product.price}</span>
+        {product.originalPrice && (
+          <span className="product-card__original-price">
+            ${product.originalPrice}
+          </span>
+        )}
+        {product.discount && <Badge label={product.discount} />}
+      </div>
     </Link>
   );
 }
