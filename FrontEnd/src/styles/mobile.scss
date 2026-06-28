@@ -378,4 +378,13 @@
       gap: 0;
     }
   }
+
+  //Category Page
+  .product-card__image-wrap img {
+    width: 88%;
+    height: 88%;
+  }
+  .product-grid__sort{
+    display: none;
+  }
 }
