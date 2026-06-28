@@ -2,6 +2,8 @@ import Link from "next/link";
 import ProductCard from "./ProductCard";
 import type { Product } from "@/types/product.d";
 import styles from "./ProductGridCategory.module.scss";
+import ExpandButton from "@/components/icons/ExpandButton";
+import FilterIcon from "@/components/icons/FilterIcon";
 
 interface ProductGridProps {
   products: Product[];
@@ -9,9 +11,8 @@ interface ProductGridProps {
   color?: string;
   totalProducts ?: number;
   itemsPerPage?: number;
-  totalPage?: number;
   currentPage?: number;
-
+  onOpenFilter: () => void;
 }
 
 export default function ProductGrid({
@@ -19,8 +20,8 @@ export default function ProductGrid({
   category,
   totalProducts = products.length,
   itemsPerPage = 9,
-  totalPage = Math.ceil(totalProducts / itemsPerPage),
-  currentPage = 1
+  currentPage = 1,
+  onOpenFilter
 
 }: ProductGridProps) {
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -39,8 +40,18 @@ export default function ProductGrid({
           </span>
 
           <span className="product-grid__sort">
-              Sort by: Most Popular
+              Sort by:
           </span>
+          
+          <span className="product-grid__sort">
+              Most Popular <ExpandButton />
+          </span>
+
+          <div 
+              onClick={onOpenFilter} className="filter-button">
+              <FilterIcon color="black"/>
+          </div>
+
         </div>
       </div>
 

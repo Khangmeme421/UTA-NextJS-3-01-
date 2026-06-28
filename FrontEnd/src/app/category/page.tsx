@@ -1,8 +1,4 @@
-import ProductGrid from "@/components/common/features/product/ProductGridCategory";
-import { ROUTES } from "@/constants";
-import CategoryContent from "./CategoryContent";
-
-
+import CategoryContent from "./[categoryID]/CategoryContent";
 
 
 export default async function CasualPage({

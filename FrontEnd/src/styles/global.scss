@@ -1164,4 +1164,376 @@ ul {
   }
 }
 
+// Category-page
+.filter-button {
+  display: none;
+}
+
+.color-swatch input {
+  display: none;
+}
+.size-pill input {
+  display: none;
+}
+
+.color-swatch {
+  position: relative;
+  cursor: pointer;
+}
+
+.color-swatch__circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: block;
+}
+
+.color-swatch__check {
+  display: none;
+}
+
+.color-swatch input:checked ~ .color-swatch__check {
+  display: block;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.color-swatch input:checked ~ .color-swatch__check--dark  {
+  color: black;
+}
+
+
+// Filter module
+.category-page__sidebar{
+  position: sticky;
+  top: 24px;
+
+  align-self: flex-start;
+
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+  //Filter Menu (sidebar container)
+.filter-menu {
+  @include card-base;
+  width: 280px;
+  padding: $lg $md;
+  margin-left: 2.5vw;
+  &__header {
+    @include flex-between;
+    margin-bottom: $md;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-black;
+  }
+
+  &__icon {
+    color: $color-text-muted;
+    font-size: $font-size-base;
+  }
+
+  &__categories {
+    @include flex-column;
+    gap: $space-sm;
+    margin-bottom: $md;
+  }
+
+  &__apply {
+    @include flex-center;
+    background: $color-black;
+    color: $color-white;
+    border-radius: $radius-full;
+    padding: $md;
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    margin-top: $md;
+  }
+}
+.filter-menu__icon{
+  display: block;
+}
+.filter-menu__close{
+  display: none;
+}
+
+//Category Dropdown Row (shared by category list + dress style list)
+.category-dropdown {
+  @include flex-between;
+  padding: $space-sm $space-xs;
+  font-size: $font-size-base;
+  color: $color-text-dark;
+  cursor: pointer;
+
+  &__arrow {
+    color: $color-text-light;
+    font-size: $font-size-sm;
+  }
+
+  &:hover {
+    color: $color-black;
+  }
+}
+
+//Shared accordion header (Price / Colors / Size / Dress Style)
+%filter-section-header {
+  @include flex-between;
+  margin-bottom: $md;
+}
+
+%filter-section-title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-black;
+}
+
+%filter-section-toggle {
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+}
+
+//Price Slider
+.price-slider__track {
+  position: relative;
+  height: 20px; /* tall enough for the handle to sit centered, not just the line */
+  display: flex;
+  align-items: center;
+  margin: 12px 4px 8px;
+  touch-action: none; /* prevents the page from scrolling while dragging on touch */
+}
+
+/* the full-width light gray background line */
+.price-slider__track::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #e5e5e5;
+  border-radius: 1px;
+}
+
+/* the black fill between the two handles */
+.price-slider__range {
+  position: absolute;
+  height: 2px;
+  background: #000;
+  border-radius: 1px;
+  z-index: 1;
+}
+
+.price-slider__handle {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%); /* center the icon on the point, not its top-left corner */
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  z-index: 2;
+  touch-action: none;
+}
+
+.price-slider__handle:active {
+  cursor: grabbing;
+}
+
+.price-slider__handle:focus-visible {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+.price-slider__labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #111;
+  margin: 0 4px;
+}
+
+.price-slider {
+  margin: $md 0;
+
+  &__header {
+    @extend %filter-section-header;
+  }
+
+  &__title {
+    @extend %filter-section-title;
+  }
+
+  &__toggle {
+    @extend %filter-section-toggle;
+  }
+
+  &__track {
+    position: relative;
+    height: 4px;
+    border-radius: $radius-full;
+    background: $color-border-light;
+    margin-bottom: $space-sm;
+  }
+
+  &__labels {
+    @include flex-between;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-black;
+  }
+}
+
+//Color Filter
+.color-filter {
+  margin: $md 0;
+
+  &__header {
+    @extend %filter-section-header;
+  }
+
+  &__title {
+    @extend %filter-section-title;
+  }
+
+  &__toggle {
+    @extend %filter-section-toggle;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: $space-sm;
+    border: none;
+    padding: 0;
+  }
+}
+
+.color-swatch {
+  @include flex-center;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  aspect-ratio: 1;
+
+  &__circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: box-shadow $transition-fast;
+
+    &--outline {
+      border: 1px solid $color-border;
+    }
+  }
+
+  &__check {
+    position: absolute;
+    color: $color-white;
+    font-size: $font-size-sm;
+    pointer-events: none;
+  }
+
+  input:checked + &__circle {
+    box-shadow: 0 0 0 2px $color-white inset, 0 0 0 2px $color-black;
+  }
+}
+
+//Size Picker
+.size-picker {
+  margin: $md 0;
+
+  &__header {
+    @extend %filter-section-header;
+  }
+
+  &__title {
+    @extend %filter-section-title;
+  }
+
+  &__toggle {
+    @extend %filter-section-toggle;
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-sm;
+    border: none;
+    padding: 0;
+  }
+}
+
+.size-pill {
+  cursor: pointer;
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $space-sm $md;
+    border-radius: $radius-full;
+    background: $color-bg-subtle;
+    font-size: $font-size-base;
+    color: $color-text-dark;
+    transition:
+      background $transition-fast,
+      color $transition-fast;
+  }
+
+  input:checked + &__label {
+    background: $color-black;
+    color: $color-white;
+  }
+}
+
+//Filter Sidebar Dress Style (renamed from .dress-style to avoid collision
+//with the homepage "Shop by Dress Style" image grid in global.scss)
+.filter-dress-style {
+  margin: $md 0;
+
+  &__header {
+    @extend %filter-section-header;
+  }
+
+  &__title {
+    @extend %filter-section-title;
+  }
+
+  &__toggle {
+    @extend %filter-section-toggle;
+  }
+
+  &__list {
+    @include flex-column;
+    gap: $space-sm;
+  }
+}
+.divider--subtle {
+  height: 1px;
+  opacity: 0.2;
+}
+
+.category-dropdown__arrow {
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.6);
+
+  svg {
+    width: 7px;
+    height: 12px;
+  }
+}
+
 @import "./mobile";
