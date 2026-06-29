@@ -306,7 +306,7 @@ export default async function ProductDetailPage({
                 <span className={styles.tab}>FAQs</span>
             </div>
 
-            <ProductReviewsHeader total={451} />
+            <ProductReviewsHeader total={REVIEWS.length} />
 
             <div className={styles.reviewGrid}>
                 {REVIEWS.map((review) => (

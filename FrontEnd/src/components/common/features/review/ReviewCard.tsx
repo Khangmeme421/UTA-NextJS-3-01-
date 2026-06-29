@@ -9,10 +9,32 @@ export interface Review {
   verified?: boolean;
 }
 
-export default function ReviewCard({ review }: { review: Review }) {
+interface ReviewCardProps {
+  review: Review;
+  showMenu?: boolean;
+  showDate?: boolean;
+}
+
+export default function ReviewCard({
+  review,
+  showMenu = false,
+  showDate = false,
+}: ReviewCardProps) {
   return (
     <div className="review-card">
-      <StarRating value={review.rating} />
+      <div className="review-card__header">
+        <StarRating value={review.rating} />
+        {showMenu && (
+          <button type="button" className="review-card__menu" aria-label="More options">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="4" r="1.5" fill="#999" />
+              <circle cx="10" cy="10" r="1.5" fill="#999" />
+              <circle cx="10" cy="16" r="1.5" fill="#999" />
+            </svg>
+          </button>
+        )}
+      </div>
+
       <div className="review-card__author-row">
         <span className="review-card__author">{review.name}</span>
         {review.verified && (
@@ -36,7 +58,8 @@ export default function ReviewCard({ review }: { review: Review }) {
       </div>
 
       <p className="review-card__comment">&ldquo;{review.comment}&rdquo;</p>
-      <p className="review-card__date">Posted on {review.date}</p>
+
+      {showDate && <p className="review-card__date">Posted on {review.date}</p>}
     </div>
   );
 }

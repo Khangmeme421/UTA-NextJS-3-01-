@@ -1,9 +1,14 @@
 interface StarRatingProps {
   value: number;
   max?: number;
+  showValue?: boolean;
 }
 
-export default function StarRating({ value, max = 5 }: StarRatingProps) {
+export default function StarRating({
+  value,
+  max = 5,
+  showValue = false,
+}: StarRatingProps) {
   return (
     <div className="star-rating">
       {Array.from({ length: max }).map((_, i) => (
@@ -14,6 +19,7 @@ export default function StarRating({ value, max = 5 }: StarRatingProps) {
           />
         </svg>
       ))}
+
       {showValue && (
         <span className="star-rating__value">
           {value.toFixed(1)}/{max}

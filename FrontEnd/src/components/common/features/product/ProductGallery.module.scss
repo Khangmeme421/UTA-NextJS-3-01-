@@ -16,6 +16,13 @@
     object-fit: cover;
     border-radius: 12px;
     cursor: pointer;
+
+    border: 2px solid transparent;
+    box-sizing: border-box;
+}
+
+.thumbnailActive {
+    border-color: #000;
 }
 
 .mainImageWrapper {

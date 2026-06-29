@@ -14,7 +14,8 @@ export default function ProductGallery({ product }: ProductGalleryProps) {
             key={index}
             src={img}
             alt={`${product.name} ${index + 1}`}
-            className={styles.thumbnail}
+            className={`${styles.thumbnail} ${index === 0 ? styles.thumbnailActive : ""
+              }`}
           />
         ))}
       </div>
