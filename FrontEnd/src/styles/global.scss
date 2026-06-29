@@ -575,19 +575,6 @@ ul {
   padding: $lg;
   background: $color-white;
 
-  &__top {
-    @include flex-between;
-    align-items: flex-start;
-  }
-
-  &__menu-btn {
-    @include button-reset;
-    color: $color-text-muted;
-    cursor: pointer;
-    padding: 0;
-    line-height: 1;
-  }
-
   &__author-row {
     display: flex;
     align-items: center;
