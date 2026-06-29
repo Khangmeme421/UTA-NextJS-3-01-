@@ -73,7 +73,7 @@ export default function StarRating({
       ))}
       {showValue && (
         <span className="star-rating__value">
-          {value}/{max}
+          {value.toFixed(1)}/{max}
         </span>
       )}
     </div>

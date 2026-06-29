@@ -10,22 +10,113 @@ import ProductReviewsHeader from "@/components/common/features/product/ProductRe
 import ReviewCard from "@/components/common/features/review/ReviewCard";
 import NewsletterSection from "@/components/common/NewsletterSection";
 
-const PRODUCT_DETAIL: Product = {
-    id: "9",
-    name: "ONE LIFE GRAPHIC T-SHIRT",
-    image: "/images/products/pd-1.png",
-    images: [
-        "/images/products/pd-2.png",
-        "/images/products/pd-3.png",
-        "/images/products/pd-4.png",
-    ],
-    price: 260,
-    originalPrice: 300,
-    discount: "-40%",
-    rating: 4.5,
-    description:
-        "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-};
+const DEFAULT_DESCRIPTION =
+    "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.";
+const PRODUCTS: Product[] = [
+    {
+        id: "1",
+        name: "T-SHIRT WITH TAPE DETAILS",
+        image: "/images/products/na-1.png",
+        images: [
+            "/images/products/na-1.png",
+            "/images/products/na-1.png",
+            "/images/products/na-1.png",
+        ],
+        price: 120,
+        rating: 4.5,
+    },
+    {
+        id: "2",
+        name: "SKINNY FIT JEANS",
+        image: "/images/products/na-2.png",
+        images: [
+            "/images/products/na-2.png",
+            "/images/products/na-2.png",
+            "/images/products/na-2.png",
+        ],
+        price: 240,
+        originalPrice: 260,
+        discount: "-8%",
+        rating: 3.5,
+    },
+    {
+        id: "3",
+        name: "CHECKERED SHIRT",
+        image: "/images/products/na-3.png",
+        images: [
+            "/images/products/na-3.png",
+            "/images/products/na-3.png",
+            "/images/products/na-3.png",
+        ],
+        price: 180,
+        rating: 4.5,
+    },
+    {
+        id: "4",
+        name: "SLEEVE STRIPED T-SHIRT",
+        image: "/images/products/na-4.png",
+        images: [
+            "/images/products/na-4.png",
+            "/images/products/na-4.png",
+            "/images/products/na-4.png",
+        ],
+        price: 130,
+        originalPrice: 160,
+        discount: "-20%",
+        rating: 4.5,
+    },
+    {
+        id: "5",
+        name: "VERTICAL STRIPED SHIRT",
+        image: "/images/products/ts-1.png",
+        images: [
+            "/images/products/ts-1.png",
+            "/images/products/ts-1.png",
+            "/images/products/ts-1.png",
+
+        ],
+        price: 212,
+        originalPrice: 232,
+        discount: "-20%",
+        rating: 5.0,
+    },
+    {
+        id: "6",
+        name: "COURAGE GRAPHIC T-SHIRT",
+        image: "/images/products/ts-2.png",
+        images: [
+            "/images/products/ts-2.png",
+            "/images/products/ts-2.png",
+            "/images/products/ts-2.png",
+        ],
+        price: 145,
+        rating: 4.0,
+    },
+    {
+        id: "7",
+        name: "LOOSE FIT BERMUDA SHORTS",
+        image: "/images/products/ts-3.png",
+        images: [
+            "/images/products/ts-3.png",
+            "/images/products/ts-3.png",
+            "/images/products/ts-3.png",
+        ],
+        price: 80,
+        rating: 3.0,
+    },
+    {
+        id: "8",
+        name: "FADED SKINNY JEANS",
+        image: "/images/products/ts-4.png",
+        images: [
+            "/images/products/ts-4.png",
+            "/images/products/ts-4.png",
+            "/images/products/ts-4.png",
+        ],
+        price: 210,
+        rating: 4.5,
+    },
+];
 
 const REVIEWS: Review[] = [
     {
@@ -119,8 +210,13 @@ const RELATED_PRODUCTS: Product[] = [
     },
 ];
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
-    const product: Product = { ...PRODUCT_DETAIL, id: params.id };
+export default async function ProductDetailPage({
+    params,
+}: {
+    params: Promise<{ id: string }>;
+}) {
+    const { id } = await params;
+    const product = PRODUCTS.find((p) => p.id === id) ?? PRODUCTS[0];
 
     return (
         <div>
@@ -143,7 +239,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                     <div className={styles.ratingRow}>
                         <StarRating value={product.rating} showValue />
                     </div>
-
+                    
                     <ProductPricing
                         variant="detail"
                         price={product.price}
@@ -151,7 +247,9 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                         discount={product.discount}
                     />
 
-                    <p className={styles.description}>{product.description}</p>
+                    <p className={styles.description}>
+                        {product.description ?? DEFAULT_DESCRIPTION}
+                    </p>
 
                     <hr className={styles.divider} />
 

@@ -11,7 +11,7 @@ export default function ProductGallery({ product }: ProductGalleryProps) {
       <div className={styles.thumbnails}>
         {product.images?.map((img, index) => (
           <img
-            key={img}
+            key={index}
             src={img}
             alt={`${product.name} ${index + 1}`}
             className={styles.thumbnail}

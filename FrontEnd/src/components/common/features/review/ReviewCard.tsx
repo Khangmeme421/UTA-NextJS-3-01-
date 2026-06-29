@@ -53,6 +53,7 @@ export default function ReviewCard({
           </svg>
         )}
       </div>
+
       <p className="review-card__comment">&ldquo;{review.comment}&rdquo;</p>
       {showDate && (
         <p className="review-card__date">Posted on {review.date}</p>
