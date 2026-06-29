@@ -14,6 +14,11 @@ export default function StarRating({ value, max = 5 }: StarRatingProps) {
           />
         </svg>
       ))}
+      {showValue && (
+        <span className="star-rating__value">
+          {value.toFixed(1)}/{max}
+        </span>
+      )}
     </div>
   );
 }

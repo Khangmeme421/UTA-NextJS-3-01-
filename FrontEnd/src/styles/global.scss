@@ -300,6 +300,7 @@ ul {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-33.333%);
   }
@@ -365,6 +366,37 @@ ul {
   }
 }
 
+//Product Pricing (detail page)
+.product-pricing {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+
+  &--detail {
+    margin-bottom: $md;
+  }
+
+  &__price {
+    font-family: "Satoshi", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: $color-black;
+  }
+
+  &__original-price {
+    font-family: "Satoshi", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    color: $color-text-light;
+  }
+}
+
 //Product Grid
 .product-grid {
   &__items {
@@ -389,6 +421,7 @@ ul {
     transition:
       background $transition-fast,
       color $transition-fast;
+
     &:hover {
       background: $color-badge-button;
       color: $color-white;
@@ -480,12 +513,12 @@ ul {
     gap: $md;
 
     &--1-2 {
-      grid-template-columns: 40% 60%; 
+      grid-template-columns: 40% 60%;
       margin-bottom: $md;
     }
 
     &--2-1 {
-      grid-template-columns: 60% 40%; 
+      grid-template-columns: 60% 40%;
     }
   }
 
@@ -1164,6 +1197,7 @@ ul {
   }
 }
 
+
 // Category-page
 .filter-button {
   display: none;
@@ -1172,6 +1206,7 @@ ul {
 .color-swatch input {
   display: none;
 }
+
 .size-pill input {
   display: none;
 }
@@ -1192,7 +1227,7 @@ ul {
   display: none;
 }
 
-.color-swatch input:checked ~ .color-swatch__check {
+.color-swatch input:checked~.color-swatch__check {
   display: block;
 
   position: absolute;
@@ -1205,13 +1240,13 @@ ul {
   font-weight: bold;
 }
 
-.color-swatch input:checked ~ .color-swatch__check--dark  {
+.color-swatch input:checked~.color-swatch__check--dark {
   color: black;
 }
 
 
 // Filter module
-.category-page__sidebar{
+.category-page__sidebar {
   position: sticky;
   top: 24px;
 
@@ -1221,12 +1256,13 @@ ul {
   overflow-y: auto;
 }
 
-  //Filter Menu (sidebar container)
+//Filter Menu (sidebar container)
 .filter-menu {
   @include card-base;
   width: 280px;
   padding: $lg $md;
   margin-left: 2.5vw;
+
   &__header {
     @include flex-between;
     margin-bottom: $md;
@@ -1260,10 +1296,12 @@ ul {
     margin-top: $md;
   }
 }
-.filter-menu__icon{
+
+.filter-menu__icon {
   display: block;
 }
-.filter-menu__close{
+
+.filter-menu__close {
   display: none;
 }
 
@@ -1305,11 +1343,13 @@ ul {
 //Price Slider
 .price-slider__track {
   position: relative;
-  height: 20px; /* tall enough for the handle to sit centered, not just the line */
+  height: 20px;
+  /* tall enough for the handle to sit centered, not just the line */
   display: flex;
   align-items: center;
   margin: 12px 4px 8px;
-  touch-action: none; /* prevents the page from scrolling while dragging on touch */
+  touch-action: none;
+  /* prevents the page from scrolling while dragging on touch */
 }
 
 /* the full-width light gray background line */
@@ -1335,7 +1375,8 @@ ul {
 .price-slider__handle {
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%); /* center the icon on the point, not its top-left corner */
+  transform: translate(-50%, -50%);
+  /* center the icon on the point, not its top-left corner */
   width: 20px;
   height: 20px;
   display: flex;
@@ -1445,7 +1486,7 @@ ul {
     pointer-events: none;
   }
 
-  input:checked + &__circle {
+  input:checked+&__circle {
     box-shadow: 0 0 0 2px $color-white inset, 0 0 0 2px $color-black;
   }
 }
@@ -1492,7 +1533,7 @@ ul {
       color $transition-fast;
   }
 
-  input:checked + &__label {
+  input:checked+&__label {
     background: $color-black;
     color: $color-white;
   }
@@ -1520,6 +1561,7 @@ ul {
     gap: $space-sm;
   }
 }
+
 .divider--subtle {
   height: 1px;
   opacity: 0.2;
@@ -1537,3 +1579,4 @@ ul {
 }
 
 @import "./mobile";
+
